@@ -1,0 +1,6 @@
+# Netlify redirects for clean URLs
+/research       /research.html       200
+/publications   /publications.html   200
+/teaching       /teaching.html       200
+/cv             /cv.html             200
+/news           /news.html           200

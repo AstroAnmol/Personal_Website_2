@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research projects by Anmol Sikka — granular mechanics, DEM simulations, asteroid regolith, and small satellite engineering.">
+  <meta name="author" content="Anmol Sikka">
+    <!-- Primary Meta Tags -->
+  <title>Research — Anmol Sikka</title>
+  <meta name="title" content="Research — Anmol Sikka">
+  <meta name="description" content="Research projects by Anmol Sikka — granular mechanics, DEM simulations, asteroid regolith, and small satellite engineering.">
+  <meta name="author" content="Anmol Sikka">
+  <link rel="canonical" href="https://aerospacenerd.com/research">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aerospacenerd.com/research">
+  <meta property="og:title" content="Research — Anmol Sikka">
+  <meta property="og:description" content="Research projects by Anmol Sikka — granular mechanics, DEM simulations, asteroid regolith, and small satellite engineering.">
+  <meta property="og:image" content="https://aerospacenerd.com/assets/img/Profile_pic.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aerospacenerd.com/research">
+  <meta property="twitter:title" content="Research — Anmol Sikka">
+  <meta property="twitter:description" content="Research projects by Anmol Sikka — granular mechanics, DEM simulations, asteroid regolith, and small satellite engineering.">
+  <meta property="twitter:image" content="https://aerospacenerd.com/assets/img/Profile_pic.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Apply theme before paint to prevent flash -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('anmol-theme');
+      var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && p)) document.documentElement.setAttribute('data-theme','dark');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">Anmol Sikka</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fa-solid fa-moon icon-moon"></i>
+            <i class="fa-solid fa-sun icon-sun"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="container">
+      <p class="page-hero-label">My Work</p>
+      <h1 class="page-hero-title">Research &amp; Engineering Projects</h1>
+      <p class="page-hero-desc">
+        From simulating asteroid avalanches under magnetic cohesion to flight-qualifying satellite hardware — explore project breakdowns, simulation media, and publication links below.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Category Filter Bar ── -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="pub-filters" id="researchFilters">
+        <button class="pub-filter-btn active" data-filter="all">All Projects</button>
+        <button class="pub-filter-btn" data-filter="planetary">Planetary Science &amp; Defense</button>
+        <button class="pub-filter-btn" data-filter="mission">Spacecraft Mission Concepts</button>
+        <button class="pub-filter-btn" data-filter="smallsat">SmallSat Engineering &amp; Ops</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Research Cards Section (Populated dynamically by js/projects-data.js) ── -->
+  <section class="section">
+    <div class="container" id="projectsContainer">
+      <!-- Dynamic grid cards rendered here -->
+    </div>
+  </section>
+
+  <!-- ── In-Page Overlay Modals (Populated dynamically by js/projects-data.js) ── -->
+  <div id="modalsContainer">
+    <!-- Dynamic overlay modals rendered here -->
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Anmol Sikka</div>
+        <p class="footer-copy" style="margin-top:0.3rem;">© 2026 Anmol Sikka · Last updated July 2026</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="js/projects-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const gridContainer = document.getElementById('projectsContainer');
+      const modalsContainer = document.getElementById('modalsContainer');
+      const filterBtns = document.querySelectorAll('#researchFilters .pub-filter-btn');
+
+      // Initial render — all projects
+      renderProjects(gridContainer, modalsContainer, 'all');
+
+      // Category filter buttons listener
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filterKey = btn.dataset.filter;
+          renderProjects(gridContainer, modalsContainer, filterKey);
+        });
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

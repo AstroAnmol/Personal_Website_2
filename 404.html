@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <title>Page Not Found — Anmol Sikka</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function(){
+      var t = localStorage.getItem('anmol-theme');
+      var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && p)) document.documentElement.setAttribute('data-theme','dark');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">Anmol Sikka</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fa-solid fa-moon icon-moon"></i>
+            <i class="fa-solid fa-sun icon-sun"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 404 Hero -->
+  <div class="page-hero" style="padding-top: calc(var(--nav-h) + 4rem); min-height: 70vh; display: flex; align-items: center;">
+    <div class="container" style="text-align: center; max-width: 640px;">
+      <p class="page-hero-label">Error 404</p>
+      <h1 class="page-hero-title" style="font-size: 3rem; margin-bottom: 1rem;">Lost in Space? 🚀</h1>
+      <p class="page-hero-desc" style="margin-bottom: 2rem;">
+        The trajectory you're looking for doesn't seem to exist or has moved outside our orbital plane.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-primary">
+          <i class="fa-solid fa-house"></i> Return to Homepage
+        </a>
+        <a href="research.html" class="btn btn-outline">
+          <i class="fa-solid fa-flask-vial"></i> View Research
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Anmol Sikka</div>
+        <p class="footer-copy" style="margin-top:0.3rem;">© 2026 Anmol Sikka · Last updated August 2026</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

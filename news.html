@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="News and updates from Anmol Sikka — talks, publications, awards, and milestones.">
+  <meta name="author" content="Anmol Sikka">
+    <!-- Primary Meta Tags -->
+  <title>News & Updates — Anmol Sikka</title>
+  <meta name="title" content="News & Updates — Anmol Sikka">
+  <meta name="description" content="News and announcements from Anmol Sikka — talks, publications, awards, and milestones.">
+  <meta name="author" content="Anmol Sikka">
+  <link rel="canonical" href="https://aerospacenerd.com/news">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aerospacenerd.com/news">
+  <meta property="og:title" content="News & Updates — Anmol Sikka">
+  <meta property="og:description" content="News and announcements from Anmol Sikka — talks, publications, awards, and milestones.">
+  <meta property="og:image" content="https://aerospacenerd.com/assets/img/Profile_pic.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aerospacenerd.com/news">
+  <meta property="twitter:title" content="News & Updates — Anmol Sikka">
+  <meta property="twitter:description" content="News and announcements from Anmol Sikka — talks, publications, awards, and milestones.">
+  <meta property="twitter:image" content="https://aerospacenerd.com/assets/img/Profile_pic.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Apply theme before paint to prevent flash -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('anmol-theme');
+      var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && p)) document.documentElement.setAttribute('data-theme','dark');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">Anmol Sikka</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fa-solid fa-moon icon-moon"></i>
+            <i class="fa-solid fa-sun icon-sun"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="container">
+      <p class="page-hero-label">Updates</p>
+      <h1 class="page-hero-title">News &amp; Announcements</h1>
+      <p class="page-hero-desc">
+        Talks, publications, awards, mission milestones, and everything in between.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Filter Bar ── -->
+  <div class="filter-bar">
+
+    <div class="container">
+      <div class="pub-filters" id="newsFilters">
+        <button class="pub-filter-btn active" data-filter="all">All</button>
+        <button class="pub-filter-btn" data-filter="paper">Publications</button>
+        <button class="pub-filter-btn" data-filter="talk">Talks</button>
+        <button class="pub-filter-btn" data-filter="milestone">Milestones</button>
+        <button class="pub-filter-btn" data-filter="award">Awards</button>
+        <button class="pub-filter-btn" data-filter="service">Service</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── News List ── -->
+  <section class="section">
+    <div class="container" style="max-width: 760px;">
+
+      <!-- Populated dynamically by news-data.js -->
+      <div class="news-list" id="newsContainer"></div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Anmol Sikka</div>
+        <p class="footer-copy" style="margin-top:0.3rem;">
+          Science blog: <a href="https://blog.aerospacenerd.com/" target="_blank">Anecdotes of an Aerospace Nerd</a>
+        </p>
+        <p class="footer-copy">© 2026 Anmol Sikka · Last updated July 2026</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="js/news-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('newsContainer');
+      const filterBtns = document.querySelectorAll('#newsFilters .pub-filter-btn');
+
+      // Initial render — all items
+      renderNews(container, null, null);
+
+      // Filter buttons
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          renderNews(container, null, filter === 'all' ? null : filter);
+        });
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
