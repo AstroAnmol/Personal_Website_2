@@ -44,6 +44,7 @@ const PROJECTS = [
     archived: false,
     tags: ["DEM", "Magnetic Cohesion", "LIGGGHTS", "Asteroid Psyche"],
     cardLinks: [
+      { label: "GitHub v1.0.0 ↗", url: "https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0", primary: true, icon: "fa-brands fa-github", external: true },
       { label: "Paper DOI", url: "https://doi.org/10.1007/s10035-026-01643-x", primary: false, icon: "fa-newspaper", external: true }
     ],
     modal: {
@@ -53,15 +54,17 @@ const PROJECTS = [
       heading: "Key Methodology & Contributions",
       bullets: [
         "<strong>Analytical Modeling:</strong> Formulated an empirical force model for inter-particle magnetic interactions between paramagnetic grains in uniform fields.",
-        "<strong>Open-Source DEM Code:</strong> Developed a custom LIGGGHTS framework to simulate paramagnetic granular media, delivering the first experimentally validated modeling tool for M-type asteroids.",
+        "<strong>Open-Source Code Release (v1.0.0):</strong> Developed and published <a href='https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0' target='_blank'>LIGGGHTS-Public-Mag v1.0.0</a> on GitHub, delivering the first experimentally validated modeling tool for paramagnetic granular media on M-type asteroids.",
         "<strong>Numerical Stability:</strong> Derived explicit time-step stability constraints for integration under steep magnetic force gradients.",
         "<strong>Geophysical Mapping:</strong> Conducted multi-scenario avalanching simulations to map the conditions on asteroid 16-Psyche where magnetic forces govern surface morphology."
       ],
       links: [
-        { label: "Granular Matter (2026)", url: "https://doi.org/10.1007/s10035-026-01643-x", primary: true, icon: "fa-file-lines" },
+        { label: "Download LIGGGHTS v1.0.0 ↗", url: "https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0", primary: true, icon: "fa-brands fa-github" },
+        { label: "Granular Matter (2026)", url: "https://doi.org/10.1007/s10035-026-01643-x", primary: false, icon: "fa-file-lines" },
         { label: "PSJ Article (2023)", url: "https://doi.org/10.3847/PSJ/ace323", primary: false, icon: "fa-file-lines" }
       ]
     }
+
   },
 
   // 1.2 NEOWARP Planetary Defense
