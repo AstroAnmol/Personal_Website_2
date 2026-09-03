@@ -176,7 +176,7 @@ const PROJECTS = [
   {
     id: "niac-debris",
     category: "smallsat",
-    catLabel: "Graduate Researcher · NASA NIAC Phase II",
+    catLabel: "Postdoctoral &amp; Graduate Researcher · NASA NIAC Phase II",
     title: "🛰️ Mapping Sub-cm Orbital Debris in LEO via Plasma Soliton Detection",
     desc: "Modeling 12U CubeSat sensor placement and field-of-view using Monte Carlo simulations to detect non-trackable sub-cm space debris via precursor plasma soliton shockwaves in Low Earth Orbit.",
     image: null,

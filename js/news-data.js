@@ -15,6 +15,20 @@
 
 const NEWS = [
   {
+    date: "Aug 24, 2026",
+    sortKey: "2026-08-24",
+    emoji: "🚀",
+    tag: "milestone",
+    html: `Started as a <strong>Postdoctoral Associate</strong> in Aerospace Engineering at the University of Maryland (UMD), working with Prof. Christine Hartzell!`
+  },
+  {
+    date: "Aug 20, 2026",
+    sortKey: "2026-08-20",
+    emoji: "✍️",
+    tag: "milestone",
+    html: `Launched <em><a href="https://smallbodies.substack.com/" target="_blank">Space Rocks</a></em> — an independent Substack publication dedicated to deep dives on small bodies, mission physics, orbital mechanics, and global planetary defense frameworks!`
+  },
+  {
     date: "May 13, 2026",
     sortKey: "2026-05-13",
     tag: "talk",
