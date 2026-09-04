@@ -60,6 +60,7 @@ const PROJECTS = [
       ],
       links: [
         { label: "Download LIGGGHTS v1.0.0 ↗", url: "https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0", primary: true, icon: "fa-brands fa-github" },
+        { label: "PSJ Article (Accepted 2026)", url: "publications.html", primary: false, icon: "fa-file-lines" },
         { label: "Granular Matter (2026)", url: "https://doi.org/10.1007/s10035-026-01643-x", primary: false, icon: "fa-file-lines" },
         { label: "PSJ Article (2023)", url: "https://doi.org/10.3847/PSJ/ace323", primary: false, icon: "fa-file-lines" }
       ]
@@ -74,11 +75,12 @@ const PROJECTS = [
     catLabel: "Planetary Defense · NASA Technical Working Group",
     title: "🌍 Near-Earth Object Reconnaissance for Planetary Defense",
     desc: "Contributed to the NASA-sponsored NEOWARP working group final report outlining reconnaissance architectures and rapid-response spacecraft trajectories for planetary defense scenarios against threatening NEOs.",
-    image: null,
+    image: "assets/img/publication_preview/neowarp.png",
+    imageFit: "contain",
     archived: false,
     tags: ["Planetary Defense", "NEO", "Mission Architecture"],
     cardLinks: [
-      { label: "NASA NTRS Report ↗", url: "https://ntrs.nasa.gov/citations/20250005751", primary: false, icon: "fa-file-pdf", external: true }
+      { label: "NASA NTRS Report ↗", url: "https://ntrs.nasa.gov/citations/20250005751", primary: true, icon: "fa-file-pdf", external: true }
     ],
     modal: null
   },
@@ -91,19 +93,24 @@ const PROJECTS = [
     title: "⭐ Polymele Stellar Occultation Campaign",
     desc: "Deployed CPC1100 mobile telescopes to Kansas as part of the Southwest Research Institute (SwRI) observer network, confirming stellar occultation detection of Trojan Asteroid Polymele to constrain its shape model.",
     image: null,
+    youtubeId: "PZ_gi4IgD5k",
     archived: false,
     tags: ["Occultation", "Trojan Asteroids", "Lucy Mission", "Telescope Ops"],
-    cardLinks: [],
+    cardLinks: [
+      { label: "Watch Campaign Video ↗", url: "https://www.youtube.com/watch?v=PZ_gi4IgD5k", primary: true, icon: "fa-brands fa-youtube", external: true }
+    ],
     modal: {
-      mediaIcon: "fa-chart-line",
-      mediaText: "Occultation Light Curve & Field Site Operations",
-      mediaHint: "[ Media Placeholder: Add light-curve plot or field photo to assets/media/polymele_occultation.jpg ]",
+      youtubeId: "PZ_gi4IgD5k",
+      mediaIcon: "fa-circle-play",
+      mediaText: "NASA Lucy Mission: Polymele Stellar Occultation Campaign",
       heading: "Campaign Highlights",
       bullets: [
         "<strong>Remote Field Deployment:</strong> Operated mobile optical telescopes in Kansas under time-critical observation windows.",
         "<strong>Light-Curve Analysis:</strong> Extracted high-precision photometric light curves in Python to determine chords and asteroid silhouette."
       ],
-      links: []
+      links: [
+        { label: "Watch on YouTube ↗", url: "https://www.youtube.com/watch?v=PZ_gi4IgD5k", primary: true, icon: "fa-brands fa-youtube" }
+      ]
     }
   },
 
@@ -118,16 +125,15 @@ const PROJECTS = [
     catLabel: "Mission Cost Lead · NASA JPL Planetary Science Summer School",
     title: "🌊 CORA: Ceres Ocean Reconnaissance and Analysis",
     desc: "Designed a New Frontiers class mission concept to explore the habitability of Ceres' Occator crater. Cost Lead managing NASA Work Breakdown Structure (WBS) budgets alongside JPL Team X.",
-    image: null,
+    image: "assets/img/project_preview/CORA-logo.png",
+    imageFit: "contain",
     archived: false,
     tags: ["Ceres Lander", "New Frontiers", "JPL Team X", "Cost Engineering"],
     cardLinks: [
-      { label: "JPL PSSS ↗", url: "https://www.jpl.nasa.gov/edu/internships/apply/nasa-science-mission-design-schools/", primary: false, icon: "fa-arrow-up-right-from-square", external: true }
+      { label: "JPL PSSS ↗", url: "https://www.jpl.nasa.gov/edu/internships/apply/nasa-science-mission-design-schools/", primary: true, icon: "fa-arrow-up-right-from-square", external: true }
     ],
     modal: {
-      mediaIcon: "fa-shuttle-space",
-      mediaText: "CORA Mission Fact Sheet & Architecture",
-      mediaHint: "[ Media Placeholder: Add fact sheet or graphic to assets/img/CORA/PSSS_S2_2024_CORA Fact Sheet.Final_URS329489-1.png ]",
+      modalImage: "assets/img/CORA/PSSS_S2_2024_CORA Fact Sheet.Final_URS329489-1.png",
       heading: "Mission Highlights & Responsibilities",
       bullets: [
         "<strong>JPL Team X Collaboration:</strong> Worked alongside JPL Team X engineers during the culminating week at JPL to finalize mission point design and cost trade-offs.",
@@ -147,25 +153,14 @@ const PROJECTS = [
     catLabel: "Mission Concept · Cornell SmallSat Design School",
     title: "☀️ SIZLE — SmallSat to Image Zodiacal Light Above Ecliptic",
     desc: "Systems engineer for a 20-person NASA Astrophysics Pioneers solar-sail SMEX concept designed to map zodiacal light above the ecliptic plane and characterize interplanetary dust distribution.",
-    image: null,
+    image: "assets/img/project_preview/SIZLE_MissionPatch_Ver2a.png",
+    imageFit: "contain",
     archived: false,
     tags: ["Solar Sail", "Zodiacal Light", "Mission Architecture"],
     cardLinks: [
-      { label: "ASCEND Paper", url: "https://doi.org/10.2514/6.2023-4782", primary: false, icon: "fa-newspaper", external: true }
+      { label: "ASCEND Paper ↗", url: "https://doi.org/10.2514/6.2023-4782", primary: true, icon: "fa-newspaper", external: true }
     ],
-    modal: {
-      mediaIcon: "fa-solar-panel",
-      mediaText: "SIZLE Solar Sail Trajectory & Spacecraft CAD",
-      mediaHint: "[ Media Placeholder: Add CAD model / solar sail diagram to assets/media/sizle_concept.jpg ]",
-      heading: "Systems Engineering Highlights",
-      bullets: [
-        "<strong>Science Traceability Matrix:</strong> Translated scientific instruments requirements into bus subsystem margins and delta-V budgets.",
-        "<strong>Solar Sail Propulsion:</strong> Modeled non-Keplerian trajectories above the ecliptic plane using solar radiation pressure."
-      ],
-      links: [
-        { label: "ASCEND 2023 Paper ↗", url: "https://doi.org/10.2514/6.2023-4782", primary: false, icon: "fa-newspaper" }
-      ]
-    }
+    modal: null
   },
 
   // ──────────────────────────────────────────────────────────
@@ -178,21 +173,23 @@ const PROJECTS = [
     category: "smallsat",
     catLabel: "Postdoctoral &amp; Graduate Researcher · NASA NIAC Phase II",
     title: "🛰️ Mapping Sub-cm Orbital Debris in LEO via Plasma Soliton Detection",
-    desc: "Modeling 12U CubeSat sensor placement and field-of-view using Monte Carlo simulations to detect non-trackable sub-cm space debris via precursor plasma soliton shockwaves in Low Earth Orbit.",
-    image: null,
+    desc: "Applying orbital mechanics to model satellite trajectories and probable debris populations, optimizing 12U CubeSat sensor placement and field-of-view via Monte Carlo simulations to maximize sub-cm space debris detection in LEO.",
+    image: "assets/img/project_preview/niac25ph2-hartzell.webp",
     archived: false,
-    tags: ["Space Debris", "Plasma Solitons", "12U CubeSat", "Monte Carlo"],
+    tags: ["Space Debris", "Orbital Mechanics", "12U CubeSat", "Monte Carlo"],
     cardLinks: [
       { label: "NASA NIAC Study ↗", url: "https://www.nasa.gov/directorates/stmd/niac/niac-studies/addressing-key-challenges-to-mapping-sub-cm-orbital-debris-in-leo-via-plasma-soliton-detection/", primary: false, icon: "fa-arrow-up-right-from-square", external: true }
     ],
     modal: {
+      modalImage: "assets/img/project_preview/niac25ph2-hartzell.webp",
       mediaIcon: "fa-satellite",
       mediaText: "NIAC Phase II Concept & Debris Sensing Architecture",
       mediaHint: "[ Media Placeholder: Add NIAC concept graphic to assets/img/project_preview/niac25ph2-hartzell.webp ]",
       heading: "Research Highlights & Approach",
       bullets: [
         "<strong>Precursor Soliton Detection:</strong> Space debris traveling at orbital speeds generates precursor plasma shockwaves (solitons) detectable via Langmuir probes before physical impact.",
-        "<strong>Monte Carlo Sensor Optimization:</strong> Modeling Langmuir probe fields-of-view and 12U satellite orbital constellations to maximize sub-cm (1 mm to 10 cm) debris detection rates.",
+        "<strong>Orbital Mechanics & Debris Modeling:</strong> Modeling satellite orbits and probable orbital debris sample trajectories to simulate relative encounter dynamics in Low Earth Orbit.",
+        "<strong>Monte Carlo Sensor Optimization:</strong> Optimizing Langmuir probe placement, field-of-view, and satellite configurations via Monte Carlo simulations to maximize detection rates for untrackable sub-cm (1 mm to 10 cm) debris.",
         "<strong>Space Situational Awareness:</strong> Fills a critical tracking gap between un-trackable sub-cm debris and Earth-based radar capabilities (> 10 cm)."
       ],
       links: [
@@ -208,43 +205,45 @@ const PROJECTS = [
     catLabel: "Project Manager & Systems Engineer · IIT Bombay",
     title: "🛰️ IIT Bombay Student Satellite Program",
     desc: "Led a 50+ member interdisciplinary team following the successful launch of Pratham aboard ISRO's PSLV C-35. Managed systems integration, environmental qualification, and mission design for follow-on CubeSats.",
-    image: null,
+    image: "assets/img/IITBSSP/logo.jpeg",
+    imageFit: "contain",
     archived: false,
     tags: ["Systems Engineering", "CubeSat", "ISRO PSLV", "TVAC & Shaker"],
+    cardLinks: [
+      { label: "AIAA SciTech Paper ↗", url: "https://arc.aiaa.org/doi/abs/10.2514/6.2021-0691", primary: true, icon: "fa-newspaper", external: true },
+      { label: "SatLab Website ↗", url: "https://www.aero.iitb.ac.in/satlab/", primary: false, icon: "fa-arrow-up-right-from-square", external: true }
+    ],
+    modal: null
+  },
+
+  // 3.3 Pratham Student Satellite
+  {
+    id: "pratham-satellite",
+    category: "smallsat",
+    catLabel: "Flight Mission · ISRO PSLV-C35 Launch",
+    title: "📡 Pratham — IIT Bombay's First Student Satellite",
+    desc: "First student satellite of IIT Bombay, launched aboard ISRO's PSLV-C35 in September 2016. Measured Total Electron Content (TEC) of the ionosphere over India and France.",
+    image: "assets/img/IITBSSP/pratham.jpg",
+    archived: false,
+    tags: ["CubeSat", "ISRO PSLV-C35", "Ionospheric TEC", "Ground Station Network"],
     cardLinks: [
       { label: "SatLab Website ↗", url: "https://www.aero.iitb.ac.in/satlab/", primary: false, icon: "fa-arrow-up-right-from-square", external: true }
     ],
     modal: {
-      mediaIcon: "fa-satellite-dish",
-      mediaText: "Satellite Shaker Table & Thermal-Vacuum Testing Media",
-      mediaHint: "[ Media Placeholder: Add vibration / TVAC test video to assets/media/pratham_test.mp4 ]",
-      heading: "Flight Hardware & Qualification Highlights",
+      youtubeId: "aaAPB7YyVh8",
+      mediaIcon: "fa-circle-play",
+      mediaText: "Pratham Satellite — IIT Bombay Student Satellite Mission Video",
+      heading: "Mission & Launch Highlights",
       bullets: [
-        "<strong>Environmental Testing:</strong> Conducted vibration testing on shaker tables at URSC Bengaluru and authored thermal-vacuum (TVAC) profiles (-60°C to +100°C).",
-        "<strong>Program Leadership:</strong> Managed 1.5M INR annual competitive funding and instituted ISRO-verified Quality Assurance protocols.",
-        "<strong>Advitiy Payload:</strong> Formulated mission requirements for Advitiy, a CubeSat broadcasting SSTV images to rural India."
+        "<strong>First Student Satellite of IIT Bombay:</strong> Conceived, designed, built, and qualified by an interdisciplinary team of undergraduate and graduate students.",
+        "<strong>Ionospheric TEC Measurement:</strong> Transmitted TEC data at 145.980 MHz to measure ionospheric electron density over India and France.",
+        "<strong>ISRO PSLV-C35 Launch:</strong> Successfully launched into a 670 km sun-synchronous orbit on September 26, 2016 aboard ISRO's PSLV-C35."
       ],
       links: [
-        { label: "Visit IITB SatLab Website ↗", url: "https://www.aero.iitb.ac.in/satlab/", primary: true, icon: "fa-arrow-up-right-from-square" }
+        { label: "Watch on YouTube ↗", url: "https://www.youtube.com/watch?v=aaAPB7YyVh8", primary: true, icon: "fa-brands fa-youtube" },
+        { label: "Visit SatLab Website ↗", url: "https://www.aero.iitb.ac.in/satlab/", primary: false, icon: "fa-arrow-up-right-from-square" }
       ]
     }
-  },
-
-
-  // 3.3 Sanket Tech Demo
-  {
-    id: "sanket-demo",
-    category: "smallsat",
-    catLabel: "Technology Demonstration · ISRO PS4-OP",
-    title: "📡 Sanket — Antenna Deployment System on PSLV Stage 4",
-    desc: "Team member for Sanket, a technology demonstration payload to qualify a deployable UHF antenna mechanism in Low Earth Orbit aboard ISRO's PSLV Stage 4 Orbital Platform.",
-    image: null,
-    archived: false,
-    tags: ["TRL-7", "Antenna Deployment", "ISRO PS4"],
-    cardLinks: [
-      { label: "Springer Paper ↗", url: "https://doi.org/10.1007/978-981-19-7474-8_8", primary: false, icon: "fa-newspaper", external: true }
-    ],
-    modal: null
   },
 
   // 3.4 Satellite 101 Wiki
@@ -254,7 +253,8 @@ const PROJECTS = [
     catLabel: "Educational Resource · Open Access",
     title: "📚 Satellite 101 Wiki",
     desc: "Co-authored and maintained an open-access educational wiki covering satellite subsystem design, attitude determination, orbital mechanics, environmental testing, and mission management for student teams worldwide.",
-    image: null,
+    image: "assets/img/project_preview/pratham_logo.png",
+    imageFit: "contain",
     archived: false,
     tags: ["Science Communication", "Open Access", "Systems Engineering"],
     cardLinks: [
@@ -290,49 +290,38 @@ const PROJECTS = [
     desc: "Built a C++ trajectory optimization framework utilizing indirect calculus of variations and genetic algorithms to compute fuel-optimal low-thrust gravity-assist trajectories to outer solar system targets.",
     image: null,
     archived: true, // Archived
-    tags: ["Low-Thrust", "Gravity Assist", "C++", "Genetic Algorithm"],
+    tags: ["Trajectory Optimization", "Astrodynamics", "C++", "Genetic Algorithms"],
     cardLinks: [],
     modal: null
   }
 ];
 
-/* ── Section Metadata Mapping ───────────────────────────────── */
-const CATEGORY_SECTIONS = [
-  { key: "planetary", label: "Planetary Science & Defense", title: "Small Body & Asteroid Physics" },
-  { key: "mission",   label: "Spacecraft Mission Concepts", title: "Mission Architecture & Systems Design" },
-  { key: "smallsat",  label: "SmallSat Engineering & Operations", title: "Flight Hardware & Satellite Operations" }
-];
+/* ── Helper: Render Research Projects ────────────────────────── */
 
-/* ── Rendering Engine ────────────────────────────────────────── */
-
-/**
- * Render grid cards and modal overlays automatically.
- * @param {HTMLElement} gridContainer   — Container for research sections/cards
- * @param {HTMLElement} modalsContainer — Container for modal overlay elements
- * @param {string|null} activeFilter    — Active category filter key ("all", "planetary", etc.)
- */
 function renderProjects(gridContainer, modalsContainer, activeFilter = "all") {
   if (!gridContainer) return;
 
-  const sectionsToRender = CATEGORY_SECTIONS.filter(sec => 
-    activeFilter === "all" || activeFilter === sec.key
-  );
+  const categories = [
+    { key: "planetary", title: "Planetary Science &amp; Defense" },
+    { key: "mission",   title: "Spacecraft Mission Concepts" },
+    { key: "smallsat",   title: "SmallSat Engineering &amp; Operations" }
+  ];
 
   let gridHtml = "";
   let modalsHtml = "";
 
-  sectionsToRender.forEach((sec, idx) => {
-    // Exclude archived projects
-    const secProjects = PROJECTS.filter(p => !p.archived && p.category === sec.key);
-    if (secProjects.length === 0) return;
-
-    if (idx > 0 && activeFilter === "all") {
-      gridHtml += `<hr class="divider">`;
+  categories.forEach(sec => {
+    // Filter out archived projects
+    let secProjects = PROJECTS.filter(p => !p.archived && p.category === sec.key);
+    if (activeFilter !== "all") {
+      secProjects = secProjects.filter(p => p.category === activeFilter);
     }
 
+    if (secProjects.length === 0) return;
+
     gridHtml += `
-      <div class="section-header" style="margin-bottom: 2rem; ${idx > 0 ? 'margin-top: 1rem;' : ''}">
-        <p class="section-label">${sec.label}</p>
+      <div class="section-header" style="margin-top: 1rem; margin-bottom: 1.8rem;">
+        <p class="section-label">${sec.title}</p>
         <h2 class="section-title">${sec.title}</h2>
       </div>
       <div class="cards-grid" style="margin-bottom: 4rem;">
@@ -366,10 +355,24 @@ function renderProjects(gridContainer, modalsContainer, activeFilter = "all") {
         });
       }
 
-      // Thumbnail Image or Gradient Fallback Header
-      const headerMediaHtml = proj.image
-        ? `<div class="card-img-wrap"><img src="${proj.image}" alt="${proj.title}" class="card-img"></div>`
-        : `<div class="card-img-gradient"></div>`;
+      // Video, Thumbnail Image or Gradient Fallback Header
+      const cardYoutubeId = proj.youtubeId;
+      const imgClass = proj.imageFit === "contain" ? "card-img card-img-contain" : "card-img";
+      const headerMediaHtml = cardYoutubeId
+        ? `<div class="card-video-wrap" style="position: relative; aspect-ratio: 16 / 9; width: 100%; overflow: hidden; background: #000; border-bottom: 1px solid var(--cream-border); cursor: pointer;" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/${cardYoutubeId}?autoplay=1\' title=\'${proj.title.replace(/'/g, "&#39;")}\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\' referrerpolicy=\'strict-origin-when-cross-origin\' allowfullscreen style=\'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;\'></iframe>'">
+            <img src="https://i.ytimg.com/vi/${cardYoutubeId}/hqdefault.jpg" alt="${proj.title}" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.25);">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: #ff0000; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <i class="fa-solid fa-play" style="color: #ffffff; font-size: 1.25rem; margin-left: 3px;"></i>
+              </div>
+            </div>
+            <span style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.85); color: #ffffff; font-size: 0.72rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; gap: 5px;">
+              <i class="fa-brands fa-youtube" style="color: #ff0000; font-size: 0.85rem;"></i> Play Video
+            </span>
+           </div>`
+        : (proj.image
+            ? `<div class="card-img-wrap"><img src="${proj.image}" alt="${proj.title}" class="${imgClass}"></div>`
+            : `<div class="card-img-gradient"></div>`);
 
       gridHtml += `
         <article class="card fade-up" data-category="${proj.category}">
@@ -393,6 +396,7 @@ function renderProjects(gridContainer, modalsContainer, activeFilter = "all") {
       // Build Modal HTML if modal exists
       if (proj.modal) {
         const m = proj.modal;
+        const modalYoutubeId = m.youtubeId || proj.youtubeId;
         const bulletsHtml = m.bullets
           .map(b => `<li>${b}</li>`)
           .join("\n");
@@ -418,11 +422,31 @@ function renderProjects(gridContainer, modalsContainer, activeFilter = "all") {
               <h3 class="modal-title">${proj.title}</h3>
 
               <div class="modal-body">
-                <div class="media-placeholder-box">
-                  <i class="fa-solid ${m.mediaIcon} media-placeholder-icon"></i>
-                  <div class="media-placeholder-text">${m.mediaText}</div>
-                  <div class="media-placeholder-hint">${m.mediaHint}</div>
-                </div>
+                ${modalYoutubeId ? `
+                  <div class="video-embed-box" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-bottom: 1.25rem; background: #000; cursor: pointer;" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/${modalYoutubeId}?autoplay=1\' title=\'${proj.title.replace(/'/g, "&#39;")}\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\' referrerpolicy=\'strict-origin-when-cross-origin\' allowfullscreen style=\'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;\'></iframe>'">
+                    <img src="https://i.ytimg.com/vi/${modalYoutubeId}/hqdefault.jpg" alt="${proj.title}" style="width: 100%; height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; filter: brightness(0.85);">
+                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3);">
+                      <div style="width: 58px; height: 58px; border-radius: 50%; background: #ff0000; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+                        <i class="fa-solid fa-play" style="color: #ffffff; font-size: 1.4rem; margin-left: 4px;"></i>
+                      </div>
+                    </div>
+                    <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.85); color: #ffffff; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; display: flex; align-items: center; gap: 6px;">
+                      <i class="fa-brands fa-youtube" style="color: #ff0000; font-size: 0.9rem;"></i> Click to Play Video
+                    </span>
+                  </div>
+                ` : (m.modalImage ? `
+                  <div class="modal-media-image-wrap" style="width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; border: 1px solid var(--cream-border); background: #ffffff;">
+                    <a href="${m.modalImage}" target="_blank" title="Click to view full image in new tab">
+                      <img src="${m.modalImage}" alt="${proj.title}" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+                    </a>
+                  </div>
+                ` : `
+                  <div class="media-placeholder-box">
+                    <i class="fa-solid ${m.mediaIcon} media-placeholder-icon"></i>
+                    <div class="media-placeholder-text">${m.mediaText}</div>
+                    <div class="media-placeholder-hint">${m.mediaHint || ''}</div>
+                  </div>
+                `)}
 
                 <h4 class="drawer-details-title">${m.heading}</h4>
                 <ul class="drawer-bullets">

@@ -49,7 +49,7 @@ Built using the official **NASA Psyche Mission Brand Palette** and custom *Warm 
     │   ├── favicon.png     # Official site icon
     │   └── Profile_pic.jpg # Hero portrait photo
     └── pdf/
-        └── Curriculum_Vitae.pdf # Downloadable PDF CV
+        └── asikka_cv.pdf # Downloadable PDF CV
 ```
 
 ---

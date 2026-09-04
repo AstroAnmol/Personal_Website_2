@@ -15,6 +15,13 @@
 
 const NEWS = [
   {
+    date: "Sep 4, 2026",
+    sortKey: "2026-09-04",
+    emoji: "🎉",
+    tag: "paper",
+    html: `Journal article <em>"Investigating the Role of Magnetic Cohesion in Avalanching on 16-Psyche: A Discrete Element Modeling Approach"</em> accepted for publication in <strong>The Planetary Science Journal (PSJ)</strong>!`
+  },
+  {
     date: "Aug 24, 2026",
     sortKey: "2026-08-24",
     emoji: "🚀",
