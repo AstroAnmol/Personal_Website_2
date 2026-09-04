@@ -40,31 +40,16 @@ const PROJECTS = [
     catLabel: "PhD Dissertation · University of Maryland",
     title: "🧲 Role of Magnetic Force in Avalanching on Metallic Asteroids",
     desc: "Developed and experimentally validated the first open-source DEM framework in LIGGGHTS to simulate paramagnetic granular media under uniform magnetic fields on M-type asteroids like 16-Psyche.",
-    image: null,
+    image: "assets/img/project_preview/mag-avalanching.png",
+    imageFit: "contain",
+    detailUrl: "psyche-dem.html",
     archived: false,
     tags: ["DEM", "Magnetic Cohesion", "LIGGGHTS", "Asteroid Psyche"],
     cardLinks: [
-      { label: "GitHub v1.0.0 ↗", url: "https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0", primary: true, icon: "fa-brands fa-github", external: true },
-      { label: "Paper DOI", url: "https://doi.org/10.1007/s10035-026-01643-x", primary: false, icon: "fa-newspaper", external: true }
+      { label: "Read Full Case Study ↗", url: "psyche-dem.html", primary: true, icon: "fa-book-open" },
+      { label: "GitHub v1.0.0 ↗", url: "https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0", primary: false, icon: "fa-brands fa-github", external: true }
     ],
-    modal: {
-      mediaIcon: "fa-film",
-      mediaText: "DEM Avalanching Simulation Video / Animation",
-      mediaHint: "[ Media Placeholder: Add MP4 video or GIF to assets/media/psyche_avalanche.mp4 ]",
-      heading: "Key Methodology & Contributions",
-      bullets: [
-        "<strong>Analytical Modeling:</strong> Formulated an empirical force model for inter-particle magnetic interactions between paramagnetic grains in uniform fields.",
-        "<strong>Open-Source Code Release (v1.0.0):</strong> Developed and published <a href='https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0' target='_blank'>LIGGGHTS-Public-Mag v1.0.0</a> on GitHub, delivering the first experimentally validated modeling tool for paramagnetic granular media on M-type asteroids.",
-        "<strong>Numerical Stability:</strong> Derived explicit time-step stability constraints for integration under steep magnetic force gradients.",
-        "<strong>Geophysical Mapping:</strong> Conducted multi-scenario avalanching simulations to map the conditions on asteroid 16-Psyche where magnetic forces govern surface morphology."
-      ],
-      links: [
-        { label: "Download LIGGGHTS v1.0.0 ↗", url: "https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0", primary: true, icon: "fa-brands fa-github" },
-        { label: "PSJ Article (Accepted 2026)", url: "publications.html", primary: false, icon: "fa-file-lines" },
-        { label: "Granular Matter (2026)", url: "https://doi.org/10.1007/s10035-026-01643-x", primary: false, icon: "fa-file-lines" },
-        { label: "PSJ Article (2023)", url: "https://doi.org/10.3847/PSJ/ace323", primary: false, icon: "fa-file-lines" }
-      ]
-    }
+    modal: null
 
   },
 
@@ -371,15 +356,21 @@ function renderProjects(gridContainer, modalsContainer, activeFilter = "all") {
             </span>
            </div>`
         : (proj.image
-            ? `<div class="card-img-wrap"><img src="${proj.image}" alt="${proj.title}" class="${imgClass}"></div>`
+            ? (proj.detailUrl
+                ? `<a href="${proj.detailUrl}" class="card-img-wrap"><img src="${proj.image}" alt="${proj.title}" class="${imgClass}"></a>`
+                : `<div class="card-img-wrap"><img src="${proj.image}" alt="${proj.title}" class="${imgClass}"></div>`)
             : `<div class="card-img-gradient"></div>`);
+
+      const cardTitleHtml = proj.detailUrl
+        ? `<h3 class="card-title"><a href="${proj.detailUrl}" style="color: inherit; text-decoration: none;">${proj.title}</a></h3>`
+        : `<h3 class="card-title">${proj.title}</h3>`;
 
       gridHtml += `
         <article class="card fade-up" data-category="${proj.category}">
           ${headerMediaHtml}
           <div class="card-body">
             <p class="card-cat">${proj.catLabel}</p>
-            <h3 class="card-title">${proj.title}</h3>
+            ${cardTitleHtml}
             <p class="card-desc">${proj.desc}</p>
             <div class="card-footer">
               <div class="tag-list" style="margin: 0;">

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Role of Magnetic Force in Avalanching on Metallic Asteroids — PhD Dissertation Case Study by Anmol Sikka (University of Maryland). DEM modeling of paramagnetic regolith on 16-Psyche.">
+  <meta name="author" content="Anmol Sikka">
+  <link rel="canonical" href="https://aerospacenerd.com/psyche">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aerospacenerd.com/psyche">
+  <meta property="og:title" content="Role of Magnetic Force in Avalanching on Metallic Asteroids — Anmol Sikka, PhD">
+  <meta property="og:description" content="Open-source DEM modeling in LIGGGHTS simulating paramagnetic granular media under uniform magnetic fields on M-type asteroids like 16-Psyche.">
+  <meta property="og:image" content="https://aerospacenerd.com/assets/img/project_preview/mag-avalanching.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aerospacenerd.com/psyche">
+  <meta property="twitter:title" content="Role of Magnetic Force in Avalanching on Metallic Asteroids — Anmol Sikka, PhD">
+  <meta property="twitter:description" content="Open-source DEM modeling in LIGGGHTS simulating paramagnetic granular media under uniform magnetic fields on M-type asteroids like 16-Psyche.">
+  <meta property="twitter:image" content="https://aerospacenerd.com/assets/img/project_preview/mag-avalanching.png">
+
+  <title>Role of Magnetic Force in Avalanching on Metallic Asteroids — Anmol Sikka, PhD</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+  <!-- Apply theme before paint to prevent flash -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('anmol-theme');
+      var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (t === 'dark' || (!t && p)) document.documentElement.setAttribute('data-theme','dark');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">Anmol Sikka</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fa-solid fa-moon icon-moon"></i>
+            <i class="fa-solid fa-sun icon-sun"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero" style="padding-bottom: 3.5rem;">
+    <div class="container">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(165,63,91,0.12); border: 1px solid rgba(165,63,91,0.3); color: var(--magenta-plum); padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.82rem; font-weight: 600; margin-bottom: 1.25rem;">
+        <i class="fa-solid fa-star" style="color: var(--coral-red);"></i> PhD Dissertation Case Study · University of Maryland
+      </div>
+      <h1 class="page-hero-title" style="font-size: 2.35rem; line-height: 1.25; max-width: 900px; margin-bottom: 1rem;">
+        Role of Magnetic Force in Avalanching on Metallic Asteroids
+      </h1>
+      <p class="page-hero-desc" style="max-width: 820px; font-size: 1.05rem;">
+        Developing the first experimentally validated Discrete Element Method (DEM) framework in LIGGGHTS to simulate paramagnetic granular regolith under uniform magnetic fields on M-type asteroids like (16) Psyche.
+      </p>
+
+      <!-- Stat Badges -->
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; margin-bottom: 2rem;">
+        <div style="background: var(--white); border: 1px solid var(--cream-border); padding: 0.6rem 1.1rem; border-radius: 8px; font-size: 0.85rem;">
+          <span style="color: var(--charcoal-mid); font-size: 0.75rem; display: block; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Open Source</span>
+          <strong style="color: var(--charcoal-dark); font-family: var(--font-mono);">LIGGGHTS-Public-Mag v1.0.0</strong>
+        </div>
+        <div style="background: var(--white); border: 1px solid var(--cream-border); padding: 0.6rem 1.1rem; border-radius: 8px; font-size: 0.85rem;">
+          <span style="color: var(--charcoal-mid); font-size: 0.75rem; display: block; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Primary Journal</span>
+          <strong style="color: var(--magenta-plum);">Planetary Science Journal (Accepted 2026)</strong>
+        </div>
+        <div style="background: var(--white); border: 1px solid var(--cream-border); padding: 0.6rem 1.1rem; border-radius: 8px; font-size: 0.85rem;">
+          <span style="color: var(--charcoal-mid); font-size: 0.75rem; display: block; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Model Validation</span>
+          <strong style="color: var(--charcoal-dark);">Granular Matter (Vol. 28, 2026)</strong>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
+        <a href="https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0" target="_blank" class="btn btn-primary" style="font-size: 0.88rem; padding: 0.65rem 1.25rem;">
+          <i class="fa-brands fa-github"></i> Download Code (v1.0.0) ↗
+        </a>
+        <a href="publications.html" class="btn btn-outline" style="font-size: 0.88rem; padding: 0.65rem 1.25rem;">
+          <i class="fa-solid fa-file-lines"></i> View PSJ Article (Accepted)
+        </a>
+        <a href="https://doi.org/10.1007/s10035-026-01643-x" target="_blank" class="btn btn-outline" style="font-size: 0.88rem; padding: 0.65rem 1.25rem;">
+          <i class="fa-solid fa-newspaper"></i> Granular Matter Article ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Content Section ── -->
+  <section class="section" style="padding-top: 3rem;">
+    <div class="container" style="max-width: 1060px;">
+
+      <!-- Featured Image Banner -->
+      <div class="fade-up" style="background: var(--white); border: 1px solid var(--cream-border); border-radius: 12px; overflow: hidden; margin-bottom: 3.5rem; box-shadow: 0 6px 24px rgba(0,0,0,0.04);">
+        <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--cream-border); background: var(--cream-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--charcoal-dark); margin: 0;">Multi-Scenario Avalanching Simulations on (16) Psyche</h3>
+            <p style="font-size: 0.85rem; color: var(--charcoal-mid); margin: 0.2rem 0 0 0;">Discrete Element Modeling of paramagnetic grains under uniform magnetic field gradients.</p>
+          </div>
+          <span class="tag" style="background: var(--psyche-gold); color: #ffffff; border: none; font-weight: 600;">DEM Visualization</span>
+        </div>
+        <div style="width: 100%; background: #000; text-align: center;">
+          <img src="assets/img/project_preview/mag-avalanching.png" alt="Magnetic Avalanching Simulation on Asteroid Psyche" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        </div>
+      </div>
+
+      <!-- Overview & Geophysical Context -->
+      <div class="info-grid fade-up" style="margin-bottom: 3.5rem;">
+        <div>
+          <div class="section-header" style="margin-bottom: 1.2rem;">
+            <p class="section-label">Geophysical Context &amp; Motivation</p>
+            <h2 class="section-title" style="font-size: 1.8rem;">Granular Mechanics on M-Type Asteroids</h2>
+          </div>
+          <p>
+            Asteroid (16) Psyche is the largest M-type (metallic) asteroid in our solar system, targeted by NASA's <em>Psyche</em> mission. Unlike silicate asteroids like Bennu or Ryugu, M-type bodies contain high concentrations of metal and paramagnetic iron-nickel grains.
+          </p>
+          <p>
+            In low-gravity environments, inter-particle cohesive forces govern surface morphology, crater degradation, and mass-wasting events. When an intrinsic or remnant magnetic field is present, <strong>paramagnetic inter-particle forces</strong> introduce directional cohesion that alters avalanche slope angles and granular fluidity.
+          </p>
+          <p>
+            This dissertation research developed the mathematical formulation, experimental validation, and open-source simulation tools required to model magnetic cohesion in space science.
+          </p>
+        </div>
+
+        <!-- Key Stats / Metadata Sidebar -->
+        <div style="background: var(--white); border: 1px solid var(--cream-border); border-radius: 12px; padding: 1.75rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--charcoal-dark); margin-bottom: 1rem; border-bottom: 1px solid var(--cream-border); padding-bottom: 0.6rem;">
+            Project Snapshot
+          </h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.85rem;">
+            <li><strong>Institution:</strong> University of Maryland, College Park</li>
+            <li><strong>Advisor:</strong> Prof. Christine Hartzell</li>
+            <li><strong>Degree:</strong> PhD Dissertation (Aerospace Engineering, 2026)</li>
+            <li><strong>Software Framework:</strong> LIGGGHTS Open-Source DEM (C++)</li>
+            <li><strong>Primary Target:</strong> Asteroid (16) Psyche &amp; M-type Regolith</li>
+            <li><strong>Keywords:</strong> Paramagnetic Cohesion, Avalanching, Mass Wasting, DEM, LIGGGHTS</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Core Research Contributions (Grid Cards) -->
+      <div style="margin-bottom: 4rem;">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <p class="section-label">Key Research Contributions</p>
+          <h2 class="section-title">Methodology &amp; Key Findings</h2>
+        </div>
+
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+          <article class="card">
+            <div class="card-body">
+              <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(165,63,91,0.1); color: var(--magenta-plum); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem;">
+                <i class="fa-solid fa-magnet"></i>
+              </div>
+              <h3 class="card-title" style="font-size: 1.15rem;">1. Analytical Force Model</h3>
+              <p class="card-desc">
+                Derived an empirical inter-particle force model for paramagnetic grains subjected to uniform external magnetic fields, resolving dipole-dipole interactions and orientation-dependent cohesion.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(244,124,51,0.1); color: var(--psyche-gold); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem;">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <h3 class="card-title" style="font-size: 1.15rem;">2. Open-Source Code Release</h3>
+              <p class="card-desc">
+                Developed and published <a href="https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0" target="_blank">LIGGGHTS-Public-Mag v1.0.0</a> on GitHub — the first open-source DEM code enabling magnetic cohesion integration for planetary scientists.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(239,89,102,0.1); color: var(--coral-red); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem;">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="card-title" style="font-size: 1.15rem;">3. Numerical Time-Step Rules</h3>
+              <p class="card-desc">
+                Formulated explicit mathematical criteria for integration time-step bounds to ensure numerical stability under steep magnetic force gradients in high-particle DEM runs.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(249,160,0,0.1); color: var(--mustard-amber); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem;">
+                <i class="fa-solid fa-volcano"></i>
+              </div>
+              <h3 class="card-title" style="font-size: 1.15rem;">4. Avalanche Angle Mapping</h3>
+              <p class="card-desc">
+                Executed multi-scenario slope avalanching simulations mapping the magnetic field thresholds where directional cohesion suppresses slope failure on 16-Psyche crater walls.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(165,63,91,0.12); color: var(--magenta-plum); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem;">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <h3 class="card-title" style="font-size: 1.15rem;">5. Bulk Magnetic Bond Number Scaling</h3>
+              <p class="card-desc">
+                Proposed a bulk magnetic bond number (<em>B</em><sub>mag, bulk</sub>) framework defining flow regime transitions: cohesion onset at <em>B</em><sub>mag, bulk</sub> ≈ 5, correlated avalanching at <em>B</em><sub>mag, bulk</sub> ≳ 14, and plastic flow at <em>B</em><sub>mag, bulk</sub> ≳ 25.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(244,124,51,0.12); color: var(--psyche-gold); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <span class="news-tag-pill" style="background: rgba(244,124,51,0.12); color: var(--psyche-gold); border: 1px solid rgba(244,124,51,0.3); font-size: 0.72rem; padding: 3px 10px; border-radius: 50px; font-weight: 600;">Key Finding</span>
+              </div>
+              <h3 class="card-title" style="font-size: 1.15rem;">6. Regolith Cohesion Thresholds</h3>
+              <p class="card-desc">
+                Accounting for multi-body field amplification (<em>S</em> ≈ 49.14) and Psyche's microgravity (<em>g</em> ≈ 0.13 m s<sup>-2</sup>), ambient remanent fields of <strong style="color: var(--psyche-gold);">30 µT cohesively bind metallic grains up to <em>a</em> ≈ 0.31 mm</strong>, whereas weak 0.3 µT fields govern nanoscale regolith dynamics (<em>a</em> ≈ 31 nm).
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Peer-Reviewed Publications & Code Links -->
+      <div style="background: var(--white); border: 1px solid var(--cream-border); border-radius: 12px; padding: 2rem; margin-bottom: 4rem;">
+        <div class="section-header" style="margin-bottom: 1.5rem;">
+          <p class="section-label">Associated Scholarship</p>
+          <h2 class="section-title" style="font-size: 1.5rem;">Peer-Reviewed Publications</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+          <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--cream-border);">
+            <span class="news-tag-pill" style="background: rgba(239,89,102,0.12); color: var(--coral-red); border: 1px solid rgba(239,89,102,0.3); font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Accepted (2026)</span>
+            <h4 style="font-size: 1.02rem; margin: 0.4rem 0 0.2rem 0; color: var(--charcoal-dark);">Investigating the Role of Magnetic Cohesion in Avalanching on 16-Psyche: A Discrete Element Modeling Approach</h4>
+            <p style="font-size: 0.85rem; color: var(--charcoal-mid); margin: 0;"><strong>Sikka, A.</strong> &amp; Hartzell, C. M. · Accepted to <em>The Planetary Science Journal (PSJ)</em>.</p>
+          </div>
+
+          <div style="padding-bottom: 1.25rem; border-bottom: 1px solid var(--cream-border);">
+            <span class="news-tag-pill" style="background: rgba(165,63,91,0.12); color: var(--magenta-plum); border: 1px solid rgba(165,63,91,0.3); font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Published (2026)</span>
+            <h4 style="font-size: 1.02rem; margin: 0.4rem 0 0.2rem 0; color: var(--charcoal-dark);">An Experimentally Validated Magnetic Force Model for Discrete Element Modeling of Paramagnetic Granular Media</h4>
+            <p style="font-size: 0.85rem; color: var(--charcoal-mid); margin: 0 0 0.3rem 0;"><strong>Sikka, A.</strong> &amp; Hartzell, C. · <em>Granular Matter</em>, Vol. 28, No. 3, pp. 53.</p>
+            <a href="https://doi.org/10.1007/s10035-026-01643-x" target="_blank" style="font-size: 0.82rem; color: var(--psyche-gold); font-weight: 600; text-decoration: none;">DOI: 10.1007/s10035-026-01643-x ↗</a>
+          </div>
+
+          <div>
+            <span class="news-tag-pill" style="background: rgba(48,33,68,0.1); color: var(--charcoal-dark); border: 1px solid rgba(48,33,68,0.2); font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Published (2023)</span>
+            <h4 style="font-size: 1.02rem; margin: 0.4rem 0 0.2rem 0; color: var(--charcoal-dark);">Development of an Empirical Model of the Force between Paramagnetic Particles in Uniform Magnetic Field on M-type Asteroids</h4>
+            <p style="font-size: 0.85rem; color: var(--charcoal-mid); margin: 0 0 0.3rem 0;"><strong>Sikka, A.</strong>, DesJardin, I., Leps, T., &amp; Hartzell, C. · <em>The Planetary Science Journal</em>, Vol. 4, No. 7, pp. 129.</p>
+            <a href="https://doi.org/10.3847/PSJ/ace323" target="_blank" style="font-size: 0.82rem; color: var(--psyche-gold); font-weight: 600; text-decoration: none;">DOI: 10.3847/PSJ/ace323 ↗</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Code Release & Citation Box -->
+      <div style="background: var(--cream-bg); border: 1px solid var(--cream-border); border-radius: 12px; padding: 2rem; margin-bottom: 4rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--charcoal-dark); margin-top: 0; margin-bottom: 0.75rem;">
+          <i class="fa-brands fa-github" style="margin-right: 0.4rem; color: var(--psyche-gold);"></i> Open-Source Repository &amp; Citation
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--charcoal-mid); margin-bottom: 1.2rem;">
+          The custom LIGGGHTS C++ source code, force fix modules, and sample simulation scripts are publicly available on GitHub under an open-source license.
+        </p>
+        <div style="background: #1e1b18; color: #f4efe9; padding: 1.25rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto; margin-bottom: 1.25rem;">
+          git clone https://github.com/AstroAnmol/LIGGGHTS-Public-Mag.git<br>
+          cd LIGGGHTS-Public-Mag/src<br>
+          make auto
+        </div>
+        <a href="https://github.com/AstroAnmol/LIGGGHTS-Public-Mag/releases/tag/v1.0.0" target="_blank" class="btn btn-primary" style="font-size: 0.82rem; padding: 0.5rem 1rem;">
+          <i class="fa-brands fa-github"></i> Visit GitHub v1.0.0 Release ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Anmol Sikka</div>
+        <p class="footer-copy" style="margin-top:0.3rem;">© 2026 Anmol Sikka · Last updated September 2026</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

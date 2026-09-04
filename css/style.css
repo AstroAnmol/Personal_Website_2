@@ -686,7 +686,6 @@ p:last-child { margin-bottom: 0; }
 }
 
 
-[data-theme="dark"] .card-img-wrap,
 [data-theme="dark"] .card-img-gradient {
   background: linear-gradient(135deg, #1c1815 0%, #2e1e14 100%);
   border-bottom-color: #3e3630;

@@ -34,9 +34,10 @@ Built using the official **NASA Psyche Mission Brand Palette** and custom *Warm 
 ├── publications.html       # Peer-reviewed journals, conference papers & technical reports
 ├── teaching.html           # Orbital mechanics, spaceflight navigation & mentorship record
 ├── cv.html                 # 2-column split academic CV matching PDF layout
+├── psyche-dem.html         # Dedicated PhD dissertation case study page for Psyche DEM research
 ├── news.html               # Full filterable news & announcements archive
 ├── 404.html                # Custom branded error page
-├── _redirects              # Netlify clean URL routing configuration
+├── _redirects              # Netlify clean URL routing configuration (/psyche -> /psyche-dem.html)
 ├── css/
 │   ├── style.css           # Core design system tokens & responsive rules (NASA Psyche theme)
 │   └── style-archived-original.css # Archived original warm terracotta theme backup
@@ -111,6 +112,13 @@ Then visit `http://localhost:8000`.
 2. Set Build command: *(leave empty for static HTML)*.
 3. Set Publish directory: `./` or `.`.
 4. Netlify will automatically build clean URLs via `_redirects` and publish changes on `git push`.
+
+---
+
+## 📌 Remaining & Upcoming Tasks Before Publishing
+
+- [ ] **DEM Visualization Video**: Create a high-resolution DEM avalanching animation / video and embed it into the Psyche case study page (`psyche-dem.html`) and project modal (`js/projects-data.js`).
+- [ ] **Final Image Asset Check**: Finalize any remaining custom graphics in `assets/img/`.
 
 ---
 
